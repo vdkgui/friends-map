@@ -11,11 +11,16 @@ export default props => {
 	}
 
 
+	const goToAddForm = () =>{
+		navigation.navigate('AddUser')
+	}
+	
+
 	return (
 		<View style={styles.container}>
-				<MenuButton text='Adicionar  Novo Amigo'></MenuButton>
-				<MenuButton text='Listar Amigos' onPress={() => goToFriendList()}></MenuButton>
-				<MenuButton text='Mapa de Amigos'></MenuButton>
+      <MenuButton text='Adicionar  Novo Amigo' onPress={() => goToAddForm()}></MenuButton>
+      <MenuButton text='Listar Amigos' onPress={() => goToFriendList()}></MenuButton>
+      <MenuButton text='Mapa de Amigos'></MenuButton>
 		</View>    
 	)
 }

@@ -21,6 +21,16 @@ export const deleteFriend = (friend) => {
   })
 }
 
+export const editFriend = (friend) => {
+  return new Promise((resolve, reject) => {
+    db.collection("friends")
+      .doc(friend.key)
+      .update(friend)
+      .then(() => resolve())
+      .catch(e => reject(e))
+  })
+}
+
 
 export const getFriends = () => {
   return new Promise((resolve, reject) => {

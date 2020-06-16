@@ -6,6 +6,8 @@ import { createStackNavigator } from '@react-navigation/stack'
 
 import Home from './src/screens/Home'
 import FriendsList from './src/screens/FriendsList'
+import AddUser from './src/screens/addUserForm'
+import EditForm from './src/screens/editForm'
 
 import { YellowBox } from 'react-native'
 YellowBox.ignoreWarnings(['Setting a timer'])
@@ -38,8 +40,12 @@ export default function App() {
       }>
         <Stack.Screen  name="Home" component={Home}  
         options={{title: "MAPA DE AMIGOS"}}/>
+        <Stack.Screen  name="AddUser" component={AddUser}  
+        options={{title: "ADICIONAR AMIGO"}}/>
         <Stack.Screen  name="FriendsList" component={FriendsList}  
         options={{title: "MAPA DE AMIGOS"}}/>
+      <Stack.Screen  name="EditForm" component={EditForm}  
+        options={{title: "EDITAR AMIGO"}}/>
       </Stack.Navigator>
     </NavigationContainer>
   )
