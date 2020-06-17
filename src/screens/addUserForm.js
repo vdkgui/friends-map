@@ -14,12 +14,19 @@ export default props => {
   const [address, setAddress] = useState()
   const [msgError, setMsgError] = useState(null)
 
-  const addNewFriend = (name, phone, address) => {
+  const addNewFriend = async (name, phone, address) => {
     if (name && phone && address) {
+      let latLong = await utils.searchLatLong(address)
       let friend = {
         name: name,
         phone: phone,
-        address: address
+        address: { 
+                  info: address,
+                  latitude: latLong.latitude,
+                  longitude: latLong.longitude,
+                  latitudeDelta: 0.010,
+                  longitudeDelta: 0.010,
+                }
       }
       utils.addFriend(friend)
       .then(r => {

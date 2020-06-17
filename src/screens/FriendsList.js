@@ -15,12 +15,6 @@ export default props => {
   }, [])
 
 
-  const deleteFriend = (friend) => {
-    setLoaging(true)
-    utils.deleteFriend(friend)
-      .then(() => getFriends())
-      .catch(e => setErrorMsg(e))
-  }
 
   const goToEditForm = (key, name, phone, address) => {
     console.log(name)
@@ -52,10 +46,10 @@ export default props => {
           renderItem={({item, index}) => (
             <View>
               <FriendContact
-                onPress={() => goToEditForm(item.key, item.name, item.phone, item.address)} 
+                onPress={() => goToEditForm(item.key, item.name, item.phone, item.address.info)} 
                 name={item.name}
                 phone={item.phone}
-                address={item.address}
+                address={item.address.info}
               />
             </View>
           )}

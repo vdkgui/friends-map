@@ -1,4 +1,5 @@
 import {db} from './Firebase'
+import * as Location from 'expo-location'
 
 
 export const addFriend = (friend) => {
@@ -50,3 +51,19 @@ export const getFriends = () => {
   })
 }
 
+
+export const searchLatLong = async (address) => {
+  let { status } = await Location.requestPermissionsAsync()
+  if (status !== "granted") {
+    console.log("Permissão de acesso a localização negada")
+  }else{
+    await Location.geocodeAsync(address)
+      .then(response => {
+        addressLatLong = {
+          latitude: response[0].latitude,
+          longitude: response[0].longitude,
+        }})
+      .catch(e => console.log(e))
+      return addressLatLong
+  }
+}

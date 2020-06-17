@@ -19,13 +19,19 @@ export default props => {
   const [msgError, setMsgError] = useState(null)
 
 
-  const editFriend = ( key, name, phone, address) => {
+  const editFriend = async ( key, name, phone, address) => {
     if (name && phone && address) {
+      let latLong = await utils.searchLatLong(address)
       let friend = {
         key: key,
         name: name,
         phone: phone,
-        address: address
+        address: { info: address,
+                  latitude: latLong.latitude,
+                  longitude: latLong.longitude,
+                  latitudeDelta: 0.010,
+                  longitudeDelta: 0.010,
+                }
       }
       utils.editFriend(friend)
       .then(r => {

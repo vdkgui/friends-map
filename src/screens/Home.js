@@ -1,6 +1,5 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
-
 import MenuButton from '../components/MenuButton'
 
 export default props => {
@@ -12,7 +11,12 @@ export default props => {
 
 
 	const goToAddForm = () =>{
-		navigation.navigate('AddUser')
+    navigation.navigate('AddUser')
+  }
+  
+
+  const goToMaps = () =>{
+    navigation.navigate('Maps')
 	}
 	
 
@@ -20,7 +24,7 @@ export default props => {
 		<View style={styles.container}>
       <MenuButton text='Adicionar  Novo Amigo' onPress={() => goToAddForm()}></MenuButton>
       <MenuButton text='Listar Amigos' onPress={() => goToFriendList()}></MenuButton>
-      <MenuButton text='Mapa de Amigos'></MenuButton>
+      <MenuButton text='Mapa de Amigos' onPress={() => goToMaps()}></MenuButton>
 		</View>    
 	)
 }

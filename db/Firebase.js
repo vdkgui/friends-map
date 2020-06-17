@@ -2,7 +2,6 @@ import * as firebase from 'firebase'
 import firestore from 'firebase/firestore'
 
 
-
 const firebaseConfig = {
   apiKey: "AIzaSyBbnMamU532TSZ76peK_ZWUhBenLoTNlcg",
   authDomain: "friends-map-f10d3.firebaseapp.com",
